@@ -4,3 +4,7 @@ export const ADD_POST = 'ADD_POST'
 export const REMOVE_POST = 'REMOVE_POSTS'
 export const SET_LOADING = 'SET_LOADING'
 export const POSTS_ERROR = 'POSTS_ERROR'
+
+export const SIGN_UP = 'SIGN_UP'
+export const SIGN_IN = 'SIGN_IN'
+export const SIGN_OUT = 'SIGN_OUT'

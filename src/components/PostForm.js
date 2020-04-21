@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React from 'react'
+import useForm from '../hooks/useForm'
 import { connect } from 'react-redux'
 import { addPost } from '../actions/postAction'
 import PropTypes from 'prop-types'
@@ -7,19 +7,12 @@ import PropTypes from 'prop-types'
 import M from 'materialize-css/dist/js/materialize.min.js'
 
 const PostForm = ({ addPost }) => {
-  const [post, setPost] = useState({
+  const [post, bind, reset] = useForm({
     title: '',
     content: '',
   })
 
-  const { title, author, content, date } = post
-
-  const handleChange = e => {
-    setPost({
-      ...post,
-      [e.target.name]: e.target.value,
-    })
-  }
+  const { title, content } = post
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -33,6 +26,7 @@ const PostForm = ({ addPost }) => {
     }
 
     addPost(newPost)
+    reset()
     M.toast({ html: 'Posted' })
     M.Modal.getInstance(document.getElementById('modal1')).close()
   }
@@ -48,7 +42,7 @@ const PostForm = ({ addPost }) => {
               type="text"
               data-length="20"
               value={title}
-              onChange={handleChange}
+              {...bind}
             />
             <label htmlFor="input_text">Input text</label>
           </div>
@@ -61,7 +55,7 @@ const PostForm = ({ addPost }) => {
               className="materialize-textarea"
               data-length="120"
               value={content}
-              onChange={handleChange}
+              {...bind}
             ></textarea>
             <label htmlFor="textarea2">Textarea</label>
           </div>

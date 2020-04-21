@@ -7,11 +7,11 @@ import Button from './Button'
 import AddPostModal from './AddPostModal'
 import Spinner from './Spinner'
 
-import { getPosts } from '../actions/postAction'
+import { getPosts, removePost } from '../actions/postAction'
 
 import PropTypes from 'prop-types'
 
-const Posts = ({ post: { posts, loading }, getPosts }) => {
+const Posts = ({ post: { posts, loading }, getPosts, removePost }) => {
   useEffect(() => {
     getPosts()
   }, [])
@@ -20,7 +20,9 @@ const Posts = ({ post: { posts, loading }, getPosts }) => {
     return <Spinner />
   }
 
-  const postCards = posts.map(post => <PostCard key={post.id} post={post} />)
+  const postCards = posts.map(post => (
+    <PostCard key={post.id} post={post} removePost={removePost} />
+  ))
 
   return (
     <div className="posts">
@@ -41,4 +43,4 @@ const mapStateToProps = state => ({
   post: state.post,
 })
 
-export default connect(mapStateToProps, { getPosts })(Posts)
+export default connect(mapStateToProps, { getPosts, removePost })(Posts)

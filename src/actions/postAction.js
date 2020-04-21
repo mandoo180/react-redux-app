@@ -1,4 +1,10 @@
-import { GET_POSTS, SET_LOADING, POSTS_ERROR, ADD_POST } from './types'
+import {
+  GET_POSTS,
+  SET_LOADING,
+  POSTS_ERROR,
+  ADD_POST,
+  REMOVE_POST,
+} from './types'
 
 export const setLoading = () => ({ type: SET_LOADING })
 
@@ -33,6 +39,23 @@ export const addPost = post => async dispatch => {
     dispatch({
       type: ADD_POST,
       payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: POSTS_ERROR,
+      payload: error.response.data,
+    })
+  }
+}
+
+export const removePost = id => async dispatch => {
+  try {
+    setLoading()
+    const response = await fetch(`/posts/${id}`, { method: 'DELETE' })
+    const data = await response.json()
+    dispatch({
+      type: REMOVE_POST,
+      payload: id,
     })
   } catch (error) {
     dispatch({

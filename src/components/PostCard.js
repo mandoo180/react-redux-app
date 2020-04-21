@@ -1,7 +1,15 @@
 import React from 'react'
 
-const PostCard = ({ post }) => {
-  const { title, author, content, date } = post
+import M from 'materialize-css/dist/js/materialize.min.js'
+
+const PostCard = ({ post, removePost }) => {
+  const { id, title, author, content, date } = post
+
+  const handleClick = () => {
+    removePost(id)
+    M.toast({ html: `${title} has been deleted.` })
+  }
+
   return (
     <div className="row">
       <div className="col s12 m12">
@@ -9,7 +17,7 @@ const PostCard = ({ post }) => {
           <div className="card-content white-text">
             <span className="card-title">{title}</span>
             <p>{author}</p>
-            <p>{content}</p>
+            <p style={{ whiteSpace: 'pre-wrap' }}>{content}</p>
           </div>
           <div className="card-action">
             <a href="#">This is a link</a>
@@ -17,6 +25,7 @@ const PostCard = ({ post }) => {
             <a
               style={{ float: 'right' }}
               className="waves-effect waves-light btn-small"
+              onClick={handleClick}
             >
               Remove
             </a>
