@@ -16,15 +16,11 @@ const Posts = ({ post: { posts, loading }, getPosts, removePost }) => {
     getPosts()
   }, [])
 
-  if (loading || !posts) {
-    return <Spinner />
-  }
-
   const postCards = posts.map(post => (
     <PostCard key={post.id} post={post} removePost={removePost} />
   ))
 
-  return (
+  const postJSX = (
     <div className="posts">
       <SearchBar />
       {postCards}
@@ -32,6 +28,8 @@ const Posts = ({ post: { posts, loading }, getPosts, removePost }) => {
       <AddPostModal />
     </div>
   )
+
+  return loading || !posts ? <Spinner /> : postJSX
 }
 
 Posts.propTypes = {

@@ -13,58 +13,71 @@
       "author": "Sam Smith",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsam quaerat illum velit nihil repellat! Ex suscipit id voluptatum voluptatem, eligendi dolore, amet quibusdam voluptatibus veritatis ad mollitia? Quasi cupiditate, repellat sit, eius saepe accusamus iusto doloribus dicta nisi maxime tempora inventore sunt. Ratione laudantium mollitia, error magnam quidem debitis labore? Tempore ex odio officia, hic laudantium earum necessitatibus quasi. Labore explicabo deleniti at ad, accusantium quaerat eaque, officia asperiores quam cum praesentium consequatur ullam odit provident molestiae itaque fugiat quis blanditiis odio quisquam distinctio ipsam autem incidunt. Dolor eius distinctio excepturi soluta illo totam hic odio nam assumenda delectus!",
       "date": "2019-05-31T15:46:10.179Z"
-    },
-    {
-      "title": "Yaaaaaaaaaaa~~",
-      "content": "Hoho",
-      "author": "Tom",
-      "data": "2020-04-21T03:59:28.517Z",
-      "id": 4
-    },
-    {
-      "title": "Yaaaaaaaaaaa~~",
-      "content": "Hoho",
-      "author": "Tom",
-      "data": "2020-04-21T03:59:31.520Z",
-      "id": 5
-    },
-    {
-      "title": "agksljhdas",
-      "content": "oakshdoiahsd",
-      "author": "Tom",
-      "data": "2020-04-21T04:02:35.837Z",
-      "id": 6
-    },
-    {
-      "title": "dmndmdm",
-      "content": "mda;sldma;sjd\najsdpojas\nd\nas\nd\nas\nd\n",
-      "author": "Tom",
-      "data": "2020-04-21T04:02:46.527Z",
-      "id": 7
-    },
-    {
-      "title": "aaaa",
-      "content": "dasdasd",
-      "author": "Tom",
-      "data": "2020-04-21T04:16:10.871Z",
-      "id": 8
     }
   ],
   "users": [
     {
       "id": 1,
-      "firstName": "John",
-      "lastName": "Doe"
+      "name": "Tom",
+      "email": "tom@email.com",
+      "password": "1234",
+      "joinedAt": "2020-04-21T14:50:44.863Z"
     },
     {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
+      "name": "faye",
+      "email": "feihu@email.com",
+      "password": "2222",
+      "joinedAt": "2020-04-21",
+      "id": 2
     },
     {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
+      "username": "user1",
+      "email": "user1@email.com",
+      "password1": "1111",
+      "password2": "1111",
+      "id": 3
+    },
+    {
+      "username": "user2",
+      "email": "user2@email.com",
+      "password1": "8210",
+      "password2": "8210",
+      "id": 4
+    },
+    {
+      "username": "user3",
+      "email": "user3@gmail.com",
+      "password1": "8210",
+      "password2": "8210",
+      "id": 5
+    },
+    {
+      "username": "user4",
+      "email": "user4@email.com",
+      "password1": "1234",
+      "password2": "1234",
+      "id": 6
+    },
+    {
+      "username": "user5",
+      "email": "user5@email.com",
+      "password1": "8210",
+      "password2": "8210",
+      "id": 7
+    },
+    {
+      "username": "user6",
+      "email": "user6@gmail.com",
+      "password1": "8210",
+      "password2": "8210",
+      "id": 8
+    },
+    {
+      "username": "user10",
+      "email": "user10@gmail.com",
+      "password": "1234",
+      "joinedAt": "2020-04-21T16:58:01.519Z",
+      "id": 9
     }
   ]
 }

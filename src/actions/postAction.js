@@ -4,6 +4,7 @@ import {
   POSTS_ERROR,
   ADD_POST,
   REMOVE_POST,
+  SEARCH_POSTS,
 } from './types'
 
 export const setLoading = () => ({ type: SET_LOADING })
@@ -56,6 +57,23 @@ export const removePost = id => async dispatch => {
     dispatch({
       type: REMOVE_POST,
       payload: id,
+    })
+  } catch (error) {
+    dispatch({
+      type: POSTS_ERROR,
+      payload: error.response.data,
+    })
+  }
+}
+
+export const searchPosts = keyword => async dispatch => {
+  try {
+    setLoading()
+    const response = await fetch(`/posts?q=${keyword}`)
+    const data = await response.json()
+    dispatch({
+      type: SEARCH_POSTS,
+      payload: data,
     })
   } catch (error) {
     dispatch({

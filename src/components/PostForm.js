@@ -60,7 +60,10 @@ const PostForm = ({ addPost }) => {
             <label htmlFor="textarea2">Textarea</label>
           </div>
         </div>
-        <a className="waves-effect waves-light btn" onClick={handleSubmit}>
+        <a
+          className="waves-effect waves-light btn indigo"
+          onClick={handleSubmit}
+        >
           Post!!
         </a>
       </form>

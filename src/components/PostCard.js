@@ -24,7 +24,7 @@ const PostCard = ({ post, removePost }) => {
             <a href="#">This is a link</a>
             <a
               style={{ float: 'right' }}
-              className="waves-effect waves-light btn-small"
+              className="waves-effect waves-light btn-small indigo"
               onClick={handleClick}
             >
               Remove

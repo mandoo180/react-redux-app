@@ -1,12 +1,21 @@
 import React from 'react'
 
-const SearchBar = props => {
+import useForm from '../hooks/useForm'
+import { connect } from 'react-redux'
+import { searchPosts } from '../actions/postAction'
+
+const SearchBar = ({ searchPosts }) => {
+  const [keyword, bind, reset] = useForm('')
+  const handleSubmit = e => {
+    e.preventDefault()
+    searchPosts(keyword)
+  }
   return (
     <nav style={{ marginBottom: '2rem' }}>
-      <div className="nav-wrapper">
-        <form>
+      <div className="nav-wrapper indigo">
+        <form onSubmit={handleSubmit}>
           <div className="input-field">
-            <input id="search" type="search" required />
+            <input id="search" type="search" value={keyword} {...bind} />
             <label className="label-icon" htmlFor="search">
               <i className="material-icons">search</i>
             </label>
@@ -18,4 +27,6 @@ const SearchBar = props => {
   )
 }
 
-export default SearchBar
+const mapStateToProps = null
+
+export default connect(mapStateToProps, { searchPosts })(SearchBar)

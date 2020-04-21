@@ -4,6 +4,7 @@ import {
   POSTS_ERROR,
   ADD_POST,
   REMOVE_POST,
+  SEARCH_POSTS,
 } from '../actions/types'
 
 const defaultState = {
@@ -26,11 +27,19 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         posts: payload,
+        loading: false,
+      }
+    case SEARCH_POSTS:
+      return {
+        ...state,
+        posts: payload,
+        loading: false,
       }
     case REMOVE_POST:
       return {
         ...state,
         posts: state.posts.filter(post => post.id !== payload),
+        loading: false,
       }
     case POSTS_ERROR:
       console.log(payload)

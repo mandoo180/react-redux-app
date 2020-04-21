@@ -8,7 +8,7 @@ const Button = props => {
     <a
       href="#modal1"
       style={buttonStyle}
-      className="btn-floating btn-large waves-effect waves-light red modal-trigger"
+      className="btn-floating btn-large waves-effect waves-light indigo modal-trigger"
     >
       <i className="material-icons">add</i>
     </a>
