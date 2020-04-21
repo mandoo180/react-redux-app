@@ -1,0 +1,43 @@
+import { GET_POSTS, SET_LOADING, POSTS_ERROR, ADD_POST } from './types'
+
+export const setLoading = () => ({ type: SET_LOADING })
+
+export const getPosts = () => async dispatch => {
+  try {
+    setLoading()
+    const response = await fetch('/posts')
+    const data = await response.json()
+    dispatch({
+      type: GET_POSTS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: POSTS_ERROR,
+      payload: error.response.data,
+    })
+  }
+}
+
+export const addPost = post => async dispatch => {
+  try {
+    setLoading()
+    const response = await fetch('/posts', {
+      method: 'POST',
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = await response.json()
+    dispatch({
+      type: ADD_POST,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: POSTS_ERROR,
+      payload: error.response.data,
+    })
+  }
+}
