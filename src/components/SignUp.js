@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 import { signUp } from '../actions/userAction'
 import useForm from '../hooks/useForm'
 
-const SignUp = ({ signUp }) => {
-  const [userInfo, bind, reset] = useForm({
+import M from 'materialize-css/dist/js/materialize.min.js'
+
+const SignUp = ({ user: { error }, signUp }) => {
+  console.log(error)
+  const [userInfo, bind] = useForm({
     username: '',
     email: '',
     password1: '',
@@ -15,8 +18,10 @@ const SignUp = ({ signUp }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (!username || username.length < 4)
-      return console.log('username is wrong')
+    validate()
+  }
+
+  const validate = async () => {
     if (password1 !== password2) return console.log('passwords are not matched')
     const newUser = {
       username,
@@ -24,8 +29,8 @@ const SignUp = ({ signUp }) => {
       password: password1,
       joinedAt: new Date(),
     }
-    signUp(newUser)
-    reset()
+    const error = await signUp(newUser)
+    if (error) return M.toast({ html: error })
   }
 
   return (

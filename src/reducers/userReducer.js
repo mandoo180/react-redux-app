@@ -32,6 +32,7 @@ export default (state = defaultState, action) => {
         user: payload,
         authenticated: true,
         loading: false,
+        error: null,
       }
     case SIGN_IN:
       return {
@@ -39,6 +40,7 @@ export default (state = defaultState, action) => {
         user: payload,
         authenticated: true,
         loading: false,
+        error: null,
       }
     case SIGN_OUT:
       return defaultState

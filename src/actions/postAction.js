@@ -52,8 +52,9 @@ export const addPost = post => async dispatch => {
 export const removePost = id => async dispatch => {
   try {
     setLoading()
-    const response = await fetch(`/posts/${id}`, { method: 'DELETE' })
-    const data = await response.json()
+    await fetch(`/posts/${id}`, { method: 'DELETE' })
+    // const response = await fetch(`/posts/${id}`, { method: 'DELETE' })
+    // const data = await response.json()
     dispatch({
       type: REMOVE_POST,
       payload: id,

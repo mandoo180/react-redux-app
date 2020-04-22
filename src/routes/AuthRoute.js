@@ -8,6 +8,7 @@ const AuthRoute = ({
   ...rest
 }) => {
   const renderComponent = props => {
+    console.log(props)
     return authenticated ? <Redirect to="/" /> : <Component {...props} />
   }
 

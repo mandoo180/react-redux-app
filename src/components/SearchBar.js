@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { searchPosts } from '../actions/postAction'
 
 const SearchBar = ({ searchPosts }) => {
-  const [keyword, bind, reset] = useForm('')
+  const [keyword, bind] = useForm('')
   const handleSubmit = e => {
     e.preventDefault()
     searchPosts(keyword)

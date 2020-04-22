@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import { signIn } from '../actions/userAction'
 import useForm from '../hooks/useForm'
 
+import M from 'materialize-css/dist/js/materialize.min.js'
+
 const SignIn = ({ signIn }) => {
-  const [userInfo, bind, reset] = useForm({
+  const [userInfo, bind] = useForm({
     email: '',
     password: '',
   })
@@ -13,8 +15,12 @@ const SignIn = ({ signIn }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    signIn(email, password)
-    reset()
+    validate()
+  }
+
+  const validate = async () => {
+    const error = await signIn(email, password)
+    if (error) return M.toast({ html: error })
   }
 
   return (

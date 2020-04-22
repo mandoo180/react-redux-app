@@ -18,17 +18,23 @@ const PostCard = ({ post, removePost }) => {
             <span className="card-title">{title}</span>
             <p>{author}</p>
             <p style={{ whiteSpace: 'pre-wrap' }}>{content}</p>
+            <p
+              className="grey-text text-lighten-4"
+              style={{ textAlign: 'right' }}
+            >
+              {date}
+            </p>
           </div>
           <div className="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
-            <a
+            <span className="grey-text text-lighten-4">This is a link</span>
+            <span className="grey-text text-lighten-4">This is a link</span>
+            <button
               style={{ float: 'right' }}
               className="waves-effect waves-light btn-small indigo"
               onClick={handleClick}
             >
               Remove
-            </a>
+            </button>
           </div>
         </div>
       </div>

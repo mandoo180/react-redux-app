@@ -7,15 +7,16 @@ const Navbar = ({ user: { user, authenticated }, signOut }) => {
   const authLinks = (
     <Fragment>
       <li>
-        <a>{user.username}</a>
+        <a href="#">{user.username}</a>
       </li>
       <li>
-        <a onClick={() => signOut()}>Sign Out</a>
+        <a href="#" onClick={() => signOut()}>
+          Sign Out
+        </a>
       </li>
     </Fragment>
   )
-  console.log(user)
-  console.log(authenticated)
+
   const guestLinks = (
     <Fragment>
       <li>
@@ -30,9 +31,9 @@ const Navbar = ({ user: { user, authenticated }, signOut }) => {
   return (
     <nav>
       <div className="nav-wrapper indigo">
-        <a href="#" style={{ marginLeft: '2rem' }} className="brand-logo">
+        <Link to="/" style={{ marginLeft: '2rem' }} className="brand-logo">
           Logo
-        </a>
+        </Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           {authenticated ? authLinks : guestLinks}
         </ul>
